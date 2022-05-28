@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-const ActionButton = styled.button<{ icon?: string }>`
+const ActionButton = styled.button<{
+  icon: string;
+  amount?: number;
+  isCart?: boolean;
+}>`
   border: none;
   width: 5rem;
   height: 5rem;
@@ -14,6 +18,20 @@ const ActionButton = styled.button<{ icon?: string }>`
   background-size: 75%;
   background-repeat: no-repeat;
   background-position: center;
+  position: relative;
+
+  &::after {
+    content: "${({ amount }) => amount}";
+    height: 2rem;
+    width: 2rem;
+    background-color: red;
+    display: ${({ isCart }) => (isCart ? "flex" : "none")};
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transform: translate(75%, -70%);
+  }
 `;
 
 export default ActionButton;
