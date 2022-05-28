@@ -19,6 +19,7 @@ const ActionButton = styled.button<{
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
+  cursor: pointer;
 
   &::after {
     content: "${({ amount }) => amount}";

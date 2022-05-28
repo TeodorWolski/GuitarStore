@@ -1,4 +1,4 @@
-import Auth from "./views/Auth";
+import Auth from "./views/Auth/Auth";
 import { useSelector } from "react-redux";
 import { RootState } from "./store";
 import ItemPage from "./views/ItemPage/ItemPage";

@@ -41,6 +41,7 @@ export const ItemInfo = styled.div`
     border-radius: 0.75rem;
     background-color: ${({ theme }) => theme.colors.royalBlue};
     color: white;
+    cursor: pointer;
   }
 `;
 

@@ -1,7 +1,7 @@
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { useDispatch } from "react-redux";
-import { login } from "../store/auth-slice";
+import { login } from "../../store/auth-slice";
 
 const Auth = () => {
   const dispatch = useDispatch();
@@ -10,7 +10,16 @@ const Auth = () => {
     dispatch(login());
   };
   return (
-    <form className="container" onSubmit={handleSubmit}>
+    <form
+      style={{
+        height: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+      onSubmit={handleSubmit}
+    >
       <TextField
         type="text"
         id="outlined-basic"
