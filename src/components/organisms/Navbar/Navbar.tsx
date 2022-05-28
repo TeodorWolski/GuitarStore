@@ -3,7 +3,7 @@ import ShoppingCartIcon from "../../../assets/images/ShoppingCartIcon.svg";
 import Logout from "../../../assets/images/Logout.svg";
 import ItemsList from "../../molecules/ItemsList/ItemsList";
 import { useState } from "react";
-import { Wrapper } from "./Navbar.styles";
+import { Wrapper, Heading } from "./Navbar.styles";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../../store";
 import { logout } from "../../../store/auth-slice";
@@ -18,7 +18,7 @@ const Navbar = () => {
   };
   return (
     <Wrapper>
-      <h1>Guitar</h1>
+      <Heading>Guitar</Heading>
       <div style={{ display: "flex" }}>
         <ItemsList itemsList={cartItems} isVisible={isVisible} />
         <ActionButton

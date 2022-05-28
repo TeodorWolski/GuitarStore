@@ -11,14 +11,15 @@ export const Wrapper = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-around;
+  }
+`;
 
-  h1 {
-    font-size: ${({ theme }) => theme.fontSize.xl};
-    color: white;
+export const Heading = styled.h1`
+  font-size: ${({ theme }) => theme.fontSize.xl};
+  color: white;
 
-    &::after {
-      content: "Store";
-      color: ${({ theme }) => theme.colors.navyBlue};
-    }
+  &::after {
+    content: "Store";
+    color: ${({ theme }) => theme.colors.navyBlue};
   }
 `;
