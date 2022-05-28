@@ -1,11 +1,18 @@
 import { Wrapper, ListItem, InfoWrapper } from "./ItemsList.styles";
 import { BasketItem } from "../../../types";
+import { useDispatch } from "react-redux";
+import { increaseQuantity } from "../../../store/cart-slice";
 interface Props {
   isVisible: boolean;
   itemsList: BasketItem[];
 }
 
 const ItemsList: React.FC<Props> = ({ isVisible, itemsList }) => {
+  const dispatch = useDispatch();
+  const handleIncreaseQuantity = () => {
+    dispatch(increaseQuantity);
+  };
+
   return (
     <Wrapper isVisible={isVisible}>
       <ul style={{ listStyle: "none", width: "100%" }}>
@@ -16,7 +23,7 @@ const ItemsList: React.FC<Props> = ({ isVisible, itemsList }) => {
               <InfoWrapper>
                 <p>{price}$</p>
                 <div>
-                  <button>+</button>
+                  <button onClick={handleIncreaseQuantity}>+</button>
                   <strong>{quantity}</strong>
                   <button>-</button>
                 </div>

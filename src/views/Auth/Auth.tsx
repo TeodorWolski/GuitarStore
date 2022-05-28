@@ -1,5 +1,4 @@
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
+import { AuthCard } from "./Auth.styles";
 import { useDispatch } from "react-redux";
 import { login } from "../../store/auth-slice";
 
@@ -10,7 +9,7 @@ const Auth = () => {
     dispatch(login());
   };
   return (
-    <form
+    <div
       style={{
         height: "100vh",
         display: "flex",
@@ -18,25 +17,14 @@ const Auth = () => {
         alignItems: "center",
         justifyContent: "center",
       }}
-      onSubmit={handleSubmit}
     >
-      <TextField
-        type="text"
-        id="outlined-basic"
-        label="Login"
-        variant="outlined"
-      />
-      <TextField
-        style={{ marginTop: "1rem" }}
-        id="outlined-basic"
-        label="Password"
-        variant="outlined"
-        type="password"
-      />
-      <Button type="submit" style={{ marginTop: "1rem" }} variant="contained">
-        Login
-      </Button>
-    </form>
+      <AuthCard onSubmit={handleSubmit}>
+        <h1>Guitar</h1>
+        <input type="text" placeholder="Login" />
+        <input type="password" placeholder="Password" />
+        <button>Login</button>
+      </AuthCard>
+    </div>
   );
 };
 

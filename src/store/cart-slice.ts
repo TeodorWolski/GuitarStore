@@ -21,12 +21,15 @@ const cartSlice = createSlice({
         state.itemsList.push({
           name: newItem.name,
           id: newItem.id,
-          price: newItem.price,
-          quantity: 1,
           totalPrice: newItem.price,
+          quantity: 1,
+          price: newItem.price,
         });
+        state.totalQuantity++;
       }
     },
+    increaseQuantity: (state, action) => {},
+    decreaseQuantity: (state, action) => {},
     removeFromCart: (state) => {},
     setShowCart: (state) => {
       state.showCart = true;
@@ -34,6 +37,7 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, removeFromCart, setShowCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, setShowCart, increaseQuantity } =
+  cartSlice.actions;
 
 export default cartSlice;
