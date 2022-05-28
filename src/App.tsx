@@ -1,5 +1,4 @@
 import Auth from "./views/Auth";
-import "./styles/main.css";
 import { useSelector } from "react-redux";
 import { RootState } from "./store";
 import ItemPage from "./views/ItemPage";
