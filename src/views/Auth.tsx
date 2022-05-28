@@ -1,9 +1,16 @@
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import { useDispatch } from "react-redux";
+import { login } from "../store/auth-slice";
 
 const Auth = () => {
+  const dispatch = useDispatch();
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    dispatch(login());
+  };
   return (
-    <div className="container">
+    <form className="container" onSubmit={handleSubmit}>
       <TextField
         type="text"
         id="outlined-basic"
@@ -17,10 +24,10 @@ const Auth = () => {
         variant="outlined"
         type="password"
       />
-      <Button style={{ marginTop: "1rem" }} variant="contained">
+      <Button type="submit" style={{ marginTop: "1rem" }} variant="contained">
         Login
       </Button>
-    </div>
+    </form>
   );
 };
 
