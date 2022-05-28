@@ -1,8 +1,16 @@
+import Auth from "./views/Auth";
+import "./styles/main.css";
+import { useSelector } from "react-redux";
+import { RootState } from "./store";
+
 const App = () => {
+  const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
+
   return (
-    <div>
-      <h1>lol</h1>
-    </div>
+    <>
+      {!isLoggedIn && <Auth />}
+      {isLoggedIn && <div>hello</div>}
+    </>
   );
 };
 
