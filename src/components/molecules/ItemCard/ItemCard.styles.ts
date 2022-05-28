@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const CardWrapper = styled.div<{ swipedPosition?: number }>`
   position: relative;
   transition: 0.3s ease-in-out;
-  margin-top: 4rem;
+  margin: 4rem;
   height: 35rem;
   width: 25.75rem;
   background-color: white;
@@ -30,6 +30,7 @@ export const ItemInfo = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+
   h1 {
     font-size: ${({ theme }) => theme.fontSize.l};
   }

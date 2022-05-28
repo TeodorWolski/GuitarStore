@@ -1,7 +1,7 @@
 import Auth from "./views/Auth";
 import { useSelector } from "react-redux";
 import { RootState } from "./store";
-import ItemPage from "./views/ItemPage";
+import ItemPage from "./views/ItemPage/ItemPage";
 
 const App = () => {
   const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);

@@ -1,7 +1,8 @@
+import ItemCard from "../../components/molecules/ItemCard/ItemCard";
+import { Wrapper } from "./ItemPage.styles";
 import { useSelector } from "react-redux";
-import ItemCard from "../components/molecules/ItemCard/ItemCard";
-import { DUMMY_PRODUCTS } from "../data";
-import { RootState } from "../store/index";
+import { DUMMY_PRODUCTS } from "../../data";
+import { RootState } from "../../store/index";
 
 const ItemPage = () => {
   const cartItems = useSelector((state: RootState) => state.cart.itemsList);
@@ -9,26 +10,20 @@ const ItemPage = () => {
   return (
     <div
       style={{
+        transform: "translateY(10%)",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "space-around",
       }}
     >
-      <h1>Item Page</h1>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "55% 55%",
-          gridGap: "30px",
-        }}
-      >
+      <Wrapper>
         {DUMMY_PRODUCTS.map((product) => (
           <div key={product.id}>
             <ItemCard item={product} />
           </div>
         ))}
-      </div>
+      </Wrapper>
     </div>
   );
 };
