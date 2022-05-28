@@ -5,7 +5,7 @@ export const CardWrapper = styled.div<{ swipedPosition?: number }>`
   transition: 0.3s ease-in-out;
   margin-top: 4rem;
   height: 35rem;
-  width: 25rem;
+  width: 25.75rem;
   background-color: white;
   box-shadow: -2px 4px 10px rgba(115, 124, 142, 0.09);
   border-radius: 1rem;
@@ -30,7 +30,6 @@ export const ItemInfo = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-
   h1 {
     font-size: ${({ theme }) => theme.fontSize.l};
   }
@@ -41,5 +40,26 @@ export const ItemInfo = styled.div`
     border-radius: 0.75rem;
     background-color: ${({ theme }) => theme.colors.royalBlue};
     color: white;
+  }
+`;
+
+export const PriceDetails = styled.div`
+  position: absolute;
+  right: -2%;
+  top: 10%;
+  height: 5rem;
+  width: 7.5rem;
+  background-color: ${({ theme }) => theme.colors.blueGrotto};
+  border-radius: 0.75rem;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: ${({ theme }) => theme.fontSize.l};
+  color: white;
+
+  &::after {
+    color: white;
+    content: "$";
   }
 `;
