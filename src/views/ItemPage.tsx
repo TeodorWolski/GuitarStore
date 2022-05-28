@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import ItemCard from "../components/ItemCard/ItemCard";
+import ItemCard from "../components/molecules/ItemCard/ItemCard";
 import { DUMMY_PRODUCTS } from "../data";
 import { RootState } from "../store/index";
 
