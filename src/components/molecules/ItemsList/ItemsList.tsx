@@ -1,4 +1,4 @@
-import { Wrapper, ListItem, InfoWrapper } from "./ItemsList.styles";
+import { Wrapper, ListItem, InfoWrapper, Price } from "./ItemsList.styles";
 import { BasketItem } from "../../../types";
 import { useDispatch } from "react-redux";
 import { addToCart, removeFromCart } from "../../../store/cart-slice";
@@ -9,6 +9,11 @@ interface Props {
 }
 
 const ItemsList: React.FC<Props> = ({ isVisible, itemsList }) => {
+  let summaryPrice = 0;
+
+  itemsList.forEach((item: BasketItem) => {
+    summaryPrice += item.totalPrice;
+  });
   const dispatch = useDispatch();
   const handleIncreaseQuantity = (
     id: number,
@@ -27,27 +32,30 @@ const ItemsList: React.FC<Props> = ({ isVisible, itemsList }) => {
       <ul style={{ listStyle: "none", width: "100%" }}>
         {itemsList.length > 0 ? (
           itemsList.map(({ id, totalPrice, quantity, name, price }) => (
-            <ListItem key={id}>
-              <h1>{name}</h1>
-              <InfoWrapper>
-                <p>{totalPrice}$</p>
-                <div>
-                  <button
-                    onClick={() =>
-                      handleIncreaseQuantity(id, name, quantity, price)
-                    }
-                  >
-                    +
-                  </button>
-                  <strong>{quantity}</strong>
-                  <button onClick={() => handleRemoveFromCart(id)}>-</button>
-                </div>
-              </InfoWrapper>
-            </ListItem>
+            <>
+              <ListItem key={id}>
+                <h1>{name}</h1>
+                <InfoWrapper>
+                  <p>{totalPrice}$</p>
+                  <div>
+                    <button
+                      onClick={() =>
+                        handleIncreaseQuantity(id, name, quantity, price)
+                      }
+                    >
+                      +
+                    </button>
+                    <strong>{quantity}</strong>
+                    <button onClick={() => handleRemoveFromCart(id)}>-</button>
+                  </div>
+                </InfoWrapper>
+              </ListItem>
+            </>
           ))
         ) : (
           <h1>Wrzuć coś do koszyka!</h1>
         )}
+        {summaryPrice > 0 && <Price>Total price {summaryPrice}$</Price>}
       </ul>
     </Wrapper>
   );

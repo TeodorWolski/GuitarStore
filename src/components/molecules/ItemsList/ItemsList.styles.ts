@@ -47,6 +47,7 @@ export const ListItem = styled.li`
 `;
 
 export const InfoWrapper = styled.div`
+  position: relative;
   display: grid;
   grid-template-columns: 70% 75%;
   place-items: center;
@@ -74,4 +75,18 @@ export const InfoWrapper = styled.div`
       background-color: ${({ theme }) => theme.colors.blueGrotto};
     }
   }
+`;
+
+export const Price = styled.div`
+  background-color: ${({ theme }) => theme.colors.royalBlue};
+  color: white;
+  height: 20%;
+  bottom: 0;
+  width: 27rem;
+  transform: translateX(-20%);
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
 `;
