@@ -28,16 +28,21 @@ const cartSlice = createSlice({
         state.totalQuantity++;
       }
     },
-    increaseQuantity: (state, action) => {},
-    decreaseQuantity: (state, action) => {},
-    removeFromCart: (state) => {},
-    setShowCart: (state) => {
-      state.showCart = true;
+    removeFromCart: (state: any, action) => {
+      const id = action.payload;
+      const existingItem: BasketItem = state.itemsList.find(
+        (item: BasketItem) => item.id === id
+      );
+      if (existingItem.quantity === 1) {
+        state.itemsList.filter((item: BasketItem) => item.id !== id);
+      } else {
+        existingItem.quantity--;
+        existingItem.totalPrice -= existingItem.price;
+      }
     },
   },
 });
 
-export const { addToCart, removeFromCart, setShowCart, increaseQuantity } =
-  cartSlice.actions;
+export const { addToCart, removeFromCart } = cartSlice.actions;
 
 export default cartSlice;

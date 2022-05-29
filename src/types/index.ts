@@ -3,6 +3,7 @@ export interface BasketItem {
   price: number;
   quantity: number;
   name: string;
+  totalPrice: number;
 }
 
 export interface Item {
