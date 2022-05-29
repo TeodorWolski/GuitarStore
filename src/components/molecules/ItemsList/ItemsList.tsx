@@ -1,7 +1,7 @@
 import { Wrapper, ListItem, InfoWrapper } from "./ItemsList.styles";
 import { BasketItem } from "../../../types";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../../store/cart-slice";
+import { addToCart, removeFromCart } from "../../../store/cart-slice";
 
 interface Props {
   isVisible: boolean;
@@ -17,6 +17,9 @@ const ItemsList: React.FC<Props> = ({ isVisible, itemsList }) => {
     price: number
   ) => {
     dispatch(addToCart({ id, name, quantity, price }));
+  };
+  const handleRemoveFromCart = (id: number) => {
+    dispatch(removeFromCart(id));
   };
 
   return (
@@ -37,7 +40,7 @@ const ItemsList: React.FC<Props> = ({ isVisible, itemsList }) => {
                     +
                   </button>
                   <strong>{quantity}</strong>
-                  <button>-</button>
+                  <button onClick={() => handleRemoveFromCart(id)}>-</button>
                 </div>
               </InfoWrapper>
             </ListItem>

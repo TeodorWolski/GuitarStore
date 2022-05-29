@@ -16,6 +16,7 @@ const Navbar = () => {
   const handleLogout = () => {
     dispatch(logout());
   };
+
   return (
     <Wrapper>
       <Heading>Guitar</Heading>
