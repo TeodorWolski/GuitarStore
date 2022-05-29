@@ -2,12 +2,11 @@ import ItemCard from "../../components/molecules/ItemCard/ItemCard";
 import Navbar from "../../components/organisms/Navbar/Navbar";
 import { Wrapper } from "./ItemPage.styles";
 import { useSelector } from "react-redux";
-import { DUMMY_PRODUCTS } from "../../assets/data";
 import { RootState } from "../../store/index";
 
 const ItemPage = () => {
-  const cartItems = useSelector((state: RootState) => state.cart.itemsList);
-  console.log(cartItems);
+  const products = useSelector((state: RootState) => state.cart.products);
+
   return (
     <>
       <Navbar />
@@ -21,7 +20,7 @@ const ItemPage = () => {
         }}
       >
         <Wrapper>
-          {DUMMY_PRODUCTS.map((product) => (
+          {products.map((product) => (
             <div key={product.id}>
               <ItemCard item={product} />
             </div>
