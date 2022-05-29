@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { BasketItem } from "../types";
-import { DUMMY_PRODUCTS } from "../assets/data/index";
+import { DUMMY_PRODUCTS } from "../assets/data/";
 
 const cartSlice = createSlice({
   name: "cart",
@@ -18,7 +18,7 @@ const cartSlice = createSlice({
       );
       if (existingItem) {
         existingItem.quantity++;
-        existingItem.price += newItem.price;
+        existingItem.totalPrice += newItem.price;
       } else {
         state.itemsList.push({
           name: newItem.name,

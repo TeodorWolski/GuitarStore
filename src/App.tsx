@@ -9,8 +9,8 @@ const App = () => {
 
   return (
     <>
-      {!isLoggedIn && <Auth />}
-      {isLoggedIn && <ItemPage />}
+      {/* {!isLoggedIn && <Auth />} */}
+      {!isLoggedIn && <ItemPage />}
     </>
   );
 };

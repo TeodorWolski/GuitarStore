@@ -43,10 +43,6 @@ export const ListItem = styled.li`
     transform: translateX(20%);
     color: black;
     font-size: 1.2rem;
-
-    &::after {
-      content: ".";
-    }
   }
 `;
 

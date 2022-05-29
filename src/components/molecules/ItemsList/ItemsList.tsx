@@ -22,6 +22,8 @@ const ItemsList: React.FC<Props> = ({ isVisible, itemsList }) => {
     dispatch(removeFromCart(id));
   };
 
+  console.log(itemsList);
+
   return (
     <Wrapper isVisible={isVisible}>
       <ul style={{ listStyle: "none", width: "100%" }}>
