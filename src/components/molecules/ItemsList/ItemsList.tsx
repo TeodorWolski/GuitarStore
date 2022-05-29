@@ -22,17 +22,15 @@ const ItemsList: React.FC<Props> = ({ isVisible, itemsList }) => {
     dispatch(removeFromCart(id));
   };
 
-  console.log(itemsList);
-
   return (
     <Wrapper isVisible={isVisible}>
       <ul style={{ listStyle: "none", width: "100%" }}>
         {itemsList.length > 0 ? (
-          itemsList.map(({ id, price, quantity, name }) => (
+          itemsList.map(({ id, totalPrice, quantity, name, price }) => (
             <ListItem key={id}>
               <h1>{name}</h1>
               <InfoWrapper>
-                <p>{price}$</p>
+                <p>{totalPrice}$</p>
                 <div>
                   <button
                     onClick={() =>
